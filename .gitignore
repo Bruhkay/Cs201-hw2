@@ -1,0 +1,23 @@
+# Ignore GitKraken settings files (if any)
+.gitkraken/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Ignore common IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Add other project-specific ignores here
