@@ -112,7 +112,7 @@ int main()
     //cout<<"Recursive Linear Search: d"<< endl;
     //cout<<"Binary Search: d"<< endl;
     //cout<<"Jump Search: d"<< endl;
-    cout<<"Random Search: a"<< endl;
+    cout<<"Random Search: d"<< endl;
     for(int i = 1; i <= 8; i++) {
 
 
@@ -122,10 +122,10 @@ int main()
         generateSortedRandomArray(array, size, maxValue); // generates a sorted random array
 
         int manytimes = pow(10,(11-i)/2);
-        int a = array[size/6];
+        //int a = array[size/6];
         //int b = array[size/2];
         //int c = array[(5*size)/6];
-        //int d = -1;
+        int d = -1;
         int k = 0;
 
         //Store the starting time
@@ -133,11 +133,11 @@ int main()
         clock_t startTime = clock();
 
         for(int j = 0; j < manytimes; j++) {
-            k = randomSearch(array, size, a);
+            k = randomSearch(array, size, d);
         }
 
         duration = 1000 * double( clock() - startTime ) / (CLOCKS_PER_SEC*manytimes);
-        cout << "Execution took " << duration << " milliseconds. For 10^"<<i << " Target= "<< a << " find at= " << k << endl;
+        cout << "Execution took " << duration << " milliseconds. For 10^"<<i << " Target= "<< d << " find at= " << k << endl;
 
 
         delete[] array;
