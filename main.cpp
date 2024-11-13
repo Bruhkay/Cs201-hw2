@@ -76,7 +76,10 @@ int jumpSearch(int arr[], int size, int target) {
 
 int main()
 {
-    cout<<"Jump Search: a"<< endl;
+    //cout<<"Non-Recursive Linear Search: d"<< endl;
+    //cout<<"Recursive Linear Search: d"<< endl;
+    //cout<<"Binary Search: d"<< endl;
+    cout<<"Jump Search: d"<< endl;
     for(int i = 1; i <= 8; i++) {
 
 
@@ -86,9 +89,9 @@ int main()
         generateSortedRandomArray(array, size, maxValue); // generates a sorted random array
 
         int manytimes = pow(10,(11-i)/2);
-        int a = array[size/6];
-        int b = array[size/2];
-        int c = array[(5*size)/6];
+        //int a = array[size/6];
+        //int b = array[size/2];
+        //int c = array[(5*size)/6];
         int d = -1;
         int k = 0;
 
@@ -97,11 +100,11 @@ int main()
         clock_t startTime = clock();
 
         for(int j = 0; j < manytimes; j++) {
-            k = jumpSearch(array, size, a);
+            k = jumpSearch(array, size, d);
         }
 
         duration = 1000 * double( clock() - startTime ) / (CLOCKS_PER_SEC*manytimes);
-        cout << "Execution took " << duration << " milliseconds. For 10^"<<i << " Target= "<< a << " find at= " << k << endl;
+        cout << "Execution took " << duration << " milliseconds. For 10^"<<i << " Target= "<< d << " find at= " << k << endl;
 
 
         delete[] array;
