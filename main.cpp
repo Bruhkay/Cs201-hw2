@@ -76,7 +76,7 @@ int jumpSearch(int arr[], int size, int target) {
 
 int main()
 {
-    cout<<"Non-Recursive Linear Search: a"<< endl;
+    cout<<"Recursive Linear Search: a"<< endl;
     for(int i = 1; i <= 8; i++) {
 
 
@@ -97,7 +97,7 @@ int main()
         clock_t startTime = clock();
 
         for(int j = 0; j < manytimes; j++) {
-            k = linearSearch(array, size, a);
+            k = recursiveLinearSearch(array, size, a);
         }
 
         duration = 1000 * double( clock() - startTime ) / (CLOCKS_PER_SEC*manytimes);
