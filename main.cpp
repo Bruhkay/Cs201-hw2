@@ -25,7 +25,7 @@ int linearSearch(int arr[], int size, int target) {
 
 int recursiveLinearSearch(int arr[], int size, int target, int index = 0) {
     if (index == size) {
-        return -1;  //Base case: numebr not found
+        return -1;  //Base case: number not found
     }
     if (arr[index] == target) {
         return index;  // number found at index
@@ -54,8 +54,6 @@ int binarySearch(int arr[], int size, int target) {
 int jumpSearch(int arr[], int size, int target) {
     int step = sqrt(size);  // Block size to be jumped
     int prev = 0;
-
-    // Jump forward in blocks until the element at the step exceeds the target or we reach the end
     while (arr[min(step, size) - 1] < target) {
         prev = step;
         step += sqrt(size);
@@ -63,47 +61,38 @@ int jumpSearch(int arr[], int size, int target) {
             return -1; //number not found
         }
     }
-
-    // Perform linear search in the block starting from `prev` to `step`
     for (int i = prev; i < min(step, size); i++) {
         if (arr[i] == target) {
             return i;  // Target found at index i
         }
     }
-
-    return -1;  //number not found
+    return -1;
 }
 
 int randomSearch(int array[], int size, int target) {
-    srand(static_cast<unsigned int>(time(0)));  // Seed for random number generator
-
-    // Dynamically allocate an array to keep track of visited indices
+    srand(static_cast<unsigned int>(time(0)));
     bool* visited = new bool[size];
     for (int i = 0; i < size; i++) {
-        visited[i] = false;  // Initialize all values to false
+        visited[i] = false;  // Initialize to false
     }
 
     int attempts = 0;
     while (attempts < size) {
-        // Generate a random index that hasn't been visited yet
         int randomIndex;
         do {
-            randomIndex = rand() % size;  // Get a random index within bounds
-        } while (visited[randomIndex]);  // Ensure the index hasn't been visited
-
-        // Mark this index as visited
+            randomIndex = rand() % size;
+        } while (visited[randomIndex]);
         visited[randomIndex] = true;
         attempts++;
 
-        // Check if the value at the random index is the target
         if (array[randomIndex] == target) {
-            delete[] visited;  // Don't forget to free the allocated memory
-            return randomIndex;  // Return the index of the target
+            delete[] visited;
+            return randomIndex;
         }
     }
 
-    delete[] visited;  // Free the allocated memory if target is not found
-    return -1;  // If we exhaust all elements without finding the target
+    delete[] visited;
+    return -1;
 }
 
 int main()
@@ -138,7 +127,6 @@ int main()
 
         duration = 1000 * double( clock() - startTime ) / (CLOCKS_PER_SEC*manytimes);
         cout << "Execution took " << duration << " milliseconds. For 10^"<<i << " Target= "<< d << " find at= " << k << endl;
-
 
         delete[] array;
     }
